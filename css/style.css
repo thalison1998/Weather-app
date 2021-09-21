@@ -6,29 +6,35 @@
     color: black;
     list-style: none;
 }
+html{
+    font-size: 62.5%;
+   
+}
 body{
+    font-size: 1.4rem;
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     flex-direction: column;
 }
 .header{
     background-image:
     linear-gradient(to right, rgb(0, 153, 255),rgb(0, 195, 255));
-    padding: 40px 0;
+    padding: 4rem 1rem;
 }
 .container-header{
-    max-width: 500px;
+    max-width: 50rem;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 .title{
-    font-size: 40px;
+    font-size: 4rem;
     text-transform: uppercase;
     color:#fff;
-    text-shadow: .2px .2px 0.2px black;
+    text-shadow: 2px 2px 2px black;
     position: relative;
     z-index: 3;
 }
@@ -37,10 +43,10 @@ body{
 }
 .logo .fa-cloud-sun-rain{
     position: absolute;
-    left: -90px;
-    font-size: 80px;
-    top:-24px;
-    text-shadow: .2px .2px 0.2px black;
+    left: -9rem;
+    font-size: 8rem;
+    top:-2.4rem;
+    text-shadow: 2px 2px 2px black;
     color: #fff;
 }
 .submit-form{
@@ -50,40 +56,42 @@ body{
     position: absolute;
     border:none;
     background: transparent;
-    right:5px;
-    bottom: 3px;
-    font-size: 18px;
+    right:.5rem;
+    bottom: .3rem;
+    font-size: 1.8rem;
     opacity: 0.5;
     cursor: pointer;
 }
 .submit-input{
     border: none;
-    border-radius: 10px;
-    height: 30px;
-    width:200px;
-    font:bold normal 16px arial;
-    padding-left: 8px;
+    border-radius: 1rem;
+    height: 3rem;
+    width:20rem;
+    font:bold normal 1.6rem arial;
+    padding-left: .8rem;
 }
 
 .container-results{
     display:flex;
-    max-width:700px;
+    max-width:72rem;
     margin:0 auto;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    margin-top: 2rem;
+    padding:0 1rem;
 }
 .msgInit{
     text-align: center;
 }
 
 .results-cards{
-    height:350px;
-    width:200px;
-    margin:10px 16.65px;
+    height:35rem;
+    flex:1 0 20rem;
+    margin:2rem 1.665rem;
     border:solid black 1px;
     display: flex;
-    padding: 10px;
+    padding: 1rem;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
@@ -127,11 +135,11 @@ body{
 }
 
 .results-city{
-    font:200 normal 20px arial;
+    font:200 normal 2rem arial;
     font-weight: 700;
 }
 .results-descri{
- font:400 normal 16px arial;
+ font:400 normal 1.6rem arial;
 }
 
 .text--mod{
@@ -140,21 +148,21 @@ body{
   text-transform: uppercase;
 }
 .results-temp.text--mod{
-    font-size: 50px;
+    font-size: 5rem;
     font-weight: 700;
 }
 .results-senstemp{
-    font:400 normal 13px arial;
+    font:400 normal 1.3rem arial;
 }
 .date{
-    font:600 normal 17px arial;
+    font:600 normal 1.7rem arial;
 }
 .btn-closed{
     position: absolute;
     top:0px;
     right:2px;
-    width: 30px;
-    height: 30px;
+    width: 3rem;
+    height: 3rem;
     border-radius:50%;
     background: rgba(255,255,255,0.4);
     backdrop-filter: blur(10px);
@@ -162,14 +170,16 @@ body{
     border: 1px solid rgba(255,255,255,0.2);
     color:black;
     font-weight:bold;
-    font-size:15px;
+    font-size:1.5rem;
     cursor: pointer;
 }
 .container-warning{
     text-align: center;
+    margin-top: 2rem;
+    height: 2rem;
 }
 .container-information{
-    padding: 20px 0;
+    padding: 2rem 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -179,13 +189,84 @@ body{
     
 }
 .maxTemp,.minTemp{
-    min-width: 200px;
+    min-width: 20rem;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
 }
-.max-city,.min-city{
+.wrapper-span{
+    margin-right: 1.5rem;
+}
+.fa-arrow-up{
+    color:rgb(160, 25, 25);
+    animation: arrowUp ease-in-out 1s infinite alternate-reverse;
+}
+.fa-arrow-down{
+    color: rgba(17, 40, 104, 0.986);
+    animation: arrowUp ease-in-out 1s infinite alternate-reverse;
+}
+@keyframes arrowDown{
+    to{
+        transform: translate3d(0,1rem,0);
+    }
+    from{
+        transform: translate3d(0,-.7rem,0);
+    }
+}
+@keyframes arrowUp{
+    to{
+        transform: translate3d(0,1rem,0);
+    }
+    from{
+        transform: translate3d(0,-.7rem,0);
+    }
+}
+.max-city,.max-temp,.min-city,.min-temp{
     display: block;
-    
-}  
+    color:#fff;
+    font-weight: 600;
+}
 .msg-error{
     color:rgba(250, 4, 4, 0.89);
-    font-size: 20px;
+    font-size: 2rem;
+}
+
+@media (max-width:788px){
+    html{
+        font-size: 50%;
+    }
+    body{
+        flex-direction: row;
+    }
+    .container-header{
+        justify-content: center;
+        margin-top:5rem;
+    }
+    .main{
+        flex:3;
+    }
+    .header{
+        flex:1;
+        
+    }.title{
+        margin-bottom:1rem;
+    }
+    .logo .fa-cloud-sun-rain{
+        top:-8rem;
+        left: 1.3rem;
+    }
+    .container-results{
+        flex-direction: column;
+        height: inherit;
+        padding: inherit;
+    }
+    .results-cards{
+        width: 89%;
+    }
+    .maxTemp,.minTemp{
+        min-width: 12rem;
+    }
+
 }

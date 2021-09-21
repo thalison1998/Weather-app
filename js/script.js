@@ -26,14 +26,24 @@ const cleaningOfUnwanted = (input) => {
 };
 
 const MaxAndMinTemperature = (max,min) => {
+  if(cardsInfo.length < 2){
+    containerInformation.innerHTML = `<p>Ainda não há dados suficientes para informar`
+    return
+  }
   containerInformation.innerHTML = `
   <div class="maxTemp">
+    <i class="fas fa-arrow-up"></i>
+    <div class="wrapper-span">
     <span class="max-city">${max.city_name}</span>
     <span class="max-temp">${max.temp}°C</span>
+    </div>
   </div>
   <div class="minTemp">
+    <i class="fas fa-arrow-down"></i>
+    <div class="wrapper-span">
     <span class="min-city">${min.city_name}</span>
     <span class="min-temp">${min.temp}°C</span>
+    </div>
   </div>
   `
 };
@@ -50,7 +60,10 @@ const minTemp = () => {
 };
 
 const msgWarning = (msg) => {
-  containerError.innerHTML = `<p class="msg-error">${msg}</p>`;
+  containerError.innerHTML = `<t class="msg-error">${msg}</p>`;
+  setTimeout(()=>{
+    containerError.innerHTML = ''
+  },2000)
 };
 
 const idGenerate = () => {
@@ -144,7 +157,7 @@ const handleEventSubmit = (e) => {
   if (!receiveImputClean) {
     msgWarning("Digite um termo válido");
     return;
-  } else if (cardsInfo.length > 5) {
+  } else if (cardsInfo.length > 4) {
     msgWarning("Limite máximo de busca");
     return;
   }
