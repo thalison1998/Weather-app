@@ -84,7 +84,8 @@
     align-items: center;
     background-repeat: no-repeat;
     background-size: cover;
-   
+    background:rgba(0, 0, 0, 0.247);
+    background-blend-mode: darken; 
 }
 .results:hover{
 }
@@ -99,7 +100,8 @@
     background-image: url("/img/ceu-poucas-nuvens.jpg");   
 }
 .results.nuvensdispersas{
-    background-image: url("/img/nuvens-dispersas.jpg");   
+    
+    background-image:url("/img/nuvens-dispersas.jpg");  
 }
 .results.chuviscos{
     background-image: url("/img/chuviscos.jpg");   
@@ -113,21 +115,27 @@
 }
 
 .results-city{
-    text-transform: uppercase;
     font:200 normal 20px arial;
+    font-weight: 700;
 }
 .results-descri{
-    text-transform: uppercase;
-    font:400 normal 16px arial;
-   
+ font:400 normal 16px arial;
 }
-.results-temp{
-    text-transform: uppercase;
-    font:400 normal 60px arial;
+
+.text--mod{
+  color:#fff;
+  text-shadow: 1px 1px 3px black;
+  text-transform: uppercase;
+}
+.results-temp.text--mod{
+    font-size: 50px;
+    font-weight: 700;
 }
 .results-senstemp{
-    text-transform: uppercase;
     font:400 normal 13px arial;
+}
+.date{
+    font:600 normal 17px arial;
 }
 .container-error{
     text-align: center;
