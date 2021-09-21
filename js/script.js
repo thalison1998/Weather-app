@@ -1,6 +1,6 @@
 const formSubmit = document.querySelector("#submit");
 const inputSubmit = document.querySelector(".submit-input");
-const containerError = document.querySelector(".container-error");
+const containerError = document.querySelector(".container-warning");
 const containerResults = document.querySelector(".container-results")
 
 const url = `https://api.weatherbit.io/v2.0/current?lang=pt&city=`;
@@ -27,7 +27,7 @@ const cleaningOfUnwanted = (input) => {
   return clearInput;
 };
 
-const msgError = (msg) => {
+const msgWarning = (msg) => {
   containerError.innerHTML = `<p class="msg-error">${msg}</p>`
 };
 
@@ -109,7 +109,7 @@ const fetchWeather = async (city) => {
     const objectsWithin = data[0];
     fetchDate(objectsWithin);
   } catch (msg) {
-    msgError(msg);
+    msgWarning(msg);
   }
 };
 
@@ -118,7 +118,7 @@ const handleEventSubmit = (e) => {
   const receiveImputClean = cleaningOfUnwanted(inputSubmit.value);
  
   if (!receiveImputClean) {
-    msgError("Digite um termo válido");
+    msgWarning("Digite um termo válido");
     return;
   }console.log(receiveImputClean)
   fetchWeather(receiveImputClean);
