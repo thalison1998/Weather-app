@@ -6,11 +6,16 @@
     color: black;
     list-style: none;
 }
+body{
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+}
 .header{
     background-image:
     linear-gradient(to right, rgb(0, 153, 255),rgb(0, 195, 255));
-    padding: 60px 0;
-    margin-bottom: 30px;
+    padding: 40px 0;
 }
 .container-header{
     max-width: 500px;
@@ -162,9 +167,24 @@
 }
 .container-warning{
     text-align: center;
-    height: 50px;
-
 }
+.container-information{
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; 
+    background: rgb(0, 195, 255);
+    flex-wrap: wrap;
+    
+}
+.maxTemp,.minTemp{
+    min-width: 200px;
+}
+.max-city,.min-city{
+    display: block;
+    
+}  
 .msg-error{
     color:rgba(250, 4, 4, 0.89);
     font-size: 20px;
