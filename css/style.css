@@ -84,6 +84,7 @@
     align-items: center;
     background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
     background:rgba(0, 0, 0, 0.247);
     background-blend-mode: darken;
     border: none;
@@ -142,6 +143,22 @@
 }
 .date{
     font:600 normal 17px arial;
+}
+.btn-closed{
+    position: absolute;
+    top:0px;
+    right:2px;
+    width: 30px;
+    height: 30px;
+    border-radius:50%;
+    background: rgba(255,255,255,0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.2);
+    color:black;
+    font-weight:bold;
+    font-size:15px;
+    cursor: pointer;
 }
 .container-error{
     text-align: center;
