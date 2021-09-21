@@ -1,55 +1,76 @@
 const formSubmit = document.querySelector("#submit");
 const inputSubmit = document.querySelector(".submit-input");
-const containerError = document.querySelector(".container-error");
-const containerResults = document.querySelector(".container-results")
+const containerError = document.querySelector(".container-warning");
+const containerResults = document.querySelector(".container-results");
+const containerInformation = document.querySelector(".container-information")
 
 const url = `https://api.weatherbit.io/v2.0/current?lang=pt&city=`;
 const date = `http://api.timezonedb.com/v2.1/get-time-zone?key=T74IZDS0A1GO&format=json&by=position&lat=`;
 
-
-const localStorageInfoCards = JSON.parse(localStorage
-  .getItem('cards'))
-let cardsInfo = localStorage
-.getItem('cards') !== null ? localStorageInfoCards : []
+const localStorageInfoCards = JSON.parse(localStorage.getItem("cards"));
+let cardsInfo =
+  localStorage.getItem("cards") !== null ? localStorageInfoCards : [];
 
 const updateCardsLocalStorage = () => {
-  localStorage.setItem('cards', JSON.stringify(cardsInfo))
-}
+  localStorage.setItem("cards", JSON.stringify(cardsInfo));
+};
 
-const removeCard = ID => {
-  cardsInfo = cardsInfo
-  .filter(card => card.id !== ID)
-  init()
-}
+const removeCard = (ID) => {
+  cardsInfo = cardsInfo.filter((card) => card.id !== ID);
+  init();
+};
 const cleaningOfUnwanted = (input) => {
   const removeCaractes = /[`~!@#$%&*()_|+\-=?;:'"¨\s,.<>\{\}\[\]\\\/]/gi;
   const clearInput = input.trim().replace(removeCaractes, "");
   return clearInput;
 };
 
-const msgError = (msg) => {
-  containerError.innerHTML = `<p class="msg-error">${msg}</p>`
+const MaxAndMinTemperature = (max,min) => {
+  containerInformation.innerHTML = `
+  <div class="maxTemp">
+    <span class="max-city">${max.city_name}</span>
+    <span class="max-temp">${max.temp}°C</span>
+  </div>
+  <div class="minTemp">
+    <span class="min-city">${min.city_name}</span>
+    <span class="min-temp">${min.temp}°C</span>
+  </div>
+  `
+};
+
+const maxTemp = () => {
+  return cardsInfo.reduce((acc, item) => {
+    return item.temp > acc.temp ? item : acc;
+  });
+};
+const minTemp = () => {
+  return cardsInfo.reduce((acc, item) => {
+    return item.temp > acc.temp ? acc : item;
+  });
+};
+
+const msgWarning = (msg) => {
+  containerError.innerHTML = `<p class="msg-error">${msg}</p>`;
 };
 
 const idGenerate = () => {
-  return Math.round(Math.random() * 1000)
-}
+  return Math.round(Math.random() * 1000);
+};
 
 const templateInit = () => {
   containerResults.innerHTML = `
   <div>
   <p class="msgInit">Realize uma pesquisa</p>
   </div>
-  `
-}
-const createTemplate = ( item ) =>{
-  const descriptionWeather = item.weather.description
+  `;
+};
+const createTemplate = (item) => {
+  const descriptionWeather = item.weather.description;
   const classResult = `
   results-cards ${cleaningOfUnwanted(descriptionWeather).toLowerCase()}
-  `
-  console.log(classResult)
-  const div = document.createElement('div')
-  div.setAttribute('class',classResult)
+  `;
+  const div = document.createElement("div");
+  div.setAttribute("class", classResult);
   div.innerHTML = `
   <button class="btn-closed" 
   onclick="removeCard(${item.id})">X</button>
@@ -60,39 +81,43 @@ const createTemplate = ( item ) =>{
   sensação termica ${item.app_temp}°C
   </p>
   <p class="date text--mod">${item.dateFormatted}</p>
-  `
-  containerResults.appendChild(div)
-}
+  `;
+  containerResults.appendChild(div);
+  
+};
 
 const init = () => {
-  containerResults.innerHTML = ''
-  cardsInfo.forEach(createTemplate)
-  if(cardsInfo.length === 0){
-    templateInit()
+  containerResults.innerHTML = "";
+  cardsInfo.forEach(createTemplate);
+  if (cardsInfo.length === 0) {
+    templateInit();
   }
-  updateCardsLocalStorage ()
-}
+  else if(cardsInfo.length >= 1){
+    MaxAndMinTemperature(maxTemp(),minTemp());
+  }
+  updateCardsLocalStorage();
+};
+
 const fetchDate = async (objectsWithin) => {
   const receiveDate = await fetch(
     `${date}${objectsWithin.lat}&lng=${objectsWithin.lon}`
   );
   const dateJson = await receiveDate.json();
-  const dateFormatted = dateJson.formatted
-  const {city_name,temp,app_temp,weather} = objectsWithin
-  let id = idGenerate()
+  const dateFormatted = dateJson.formatted;
+  const { city_name, temp, app_temp, weather } = objectsWithin;
+  let id = idGenerate();
   cardsInfo.push({
     city_name,
     temp,
     app_temp,
-    weather, 
+    weather,
     dateFormatted,
-    id
-  })
-  init()
-  
+    id,
+  });
+  init();
 };
 
-init()
+init();
 
 const fetchWeather = async (city) => {
   try {
@@ -103,26 +128,28 @@ const fetchWeather = async (city) => {
       throw new Error("Não foi possível obter a localização");
     }
     containerError.innerHTML = "";
+
     const { data } = await response.json();
-    console.log(data[0])
-    
     const objectsWithin = data[0];
     fetchDate(objectsWithin);
   } catch (msg) {
-    msgError(msg);
+    msgWarning(msg);
   }
 };
 
 const handleEventSubmit = (e) => {
   e.preventDefault();
   const receiveImputClean = cleaningOfUnwanted(inputSubmit.value);
- 
+
   if (!receiveImputClean) {
-    msgError("Digite um termo válido");
+    msgWarning("Digite um termo válido");
     return;
-  }console.log(receiveImputClean)
+  } else if (cardsInfo.length > 5) {
+    msgWarning("Limite máximo de busca");
+    return;
+  }
+
   fetchWeather(receiveImputClean);
-  
 };
 
 formSubmit.addEventListener("submit", handleEventSubmit);
