@@ -85,9 +85,15 @@
     background-repeat: no-repeat;
     background-size: cover;
     background:rgba(0, 0, 0, 0.247);
-    background-blend-mode: darken; 
+    background-blend-mode: darken;
+    border: none;
+    box-shadow: 1px 1px 5px black;
+    transition: .3s ease-in-out;
+    opacity: .9
 }
-.results:hover{
+.results-cards:hover{
+    transform: scale(1.12);
+    opacity: 1;
 }
 .results-cards.nublado{
     background-image: url("/img/tempo-nublado.jpg");   
