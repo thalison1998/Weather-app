@@ -45,7 +45,7 @@ const templateInit = () => {
 const createTemplate = ( item ) =>{
   const descriptionWeather = item.weather.description
   const classResult = `
-  results ${cleaningOfUnwanted(descriptionWeather).toLowerCase()}
+  results-cards ${cleaningOfUnwanted(descriptionWeather).toLowerCase()}
   `
   console.log(classResult)
   const div = document.createElement('div')
