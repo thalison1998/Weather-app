@@ -51,12 +51,15 @@ const createTemplate = ( item ) =>{
   const div = document.createElement('div')
   div.setAttribute('class',classResult)
   div.innerHTML = `
-  <button class="btn-closed" onclick="removeCard(${item.id})">X</button>
-  <h1 class="results-city">${item.city_name}</h1>
-  <p class="results-descri">${descriptionWeather}</p>
-  <p class="results-temp">${item.temp}°C</p>
-  <p class="results-senstemp"> sensação termica ${item.app_temp}°C</p>
-  <p class="date">${item.dateFormatted}</p>
+  <button class="btn-closed" 
+  onclick="removeCard(${item.id})">X</button>
+  <h1 class="results-city text--mod">${item.city_name}</h1>
+  <p class="results-descri text--mod">${descriptionWeather}</p>
+  <p class="results-temp text--mod">${item.temp}°C</p>
+  <p class="results-senstemp text--mod">
+  sensação termica ${item.app_temp}°C
+  </p>
+  <p class="date text--mod">${item.dateFormatted}</p>
   `
   containerResults.appendChild(div)
 }
