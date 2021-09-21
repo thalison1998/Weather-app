@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    list-style: none;
+}
+.header{
+    background-image:
+    linear-gradient(to right, rgb(0, 153, 255),rgb(0, 195, 255));
+    padding: 60px 0;
+    margin-bottom: 30px;
+}
+.container-header{
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.title{
+    font-size: 40px;
+    text-transform: uppercase;
+    color:#fff;
+    text-shadow: .2px .2px 0.2px black;
+    position: relative;
+    z-index: 3;
+}
+.logo{
+    position: relative;
+}
+.logo .fa-cloud-sun-rain{
+    position: absolute;
+    left: -90px;
+    font-size: 80px;
+    top:-24px;
+    text-shadow: .2px .2px 0.2px black;
+    color: #fff;
+}
+.submit-form{
+    position: relative;
+}
+.submit-btn{
+    position: absolute;
+    border:none;
+    background: transparent;
+    right:5px;
+    bottom: 3px;
+    font-size: 18px;
+    opacity: 0.5;
+    cursor: pointer;
+}
+.submit-input{
+    border: none;
+    border-radius: 10px;
+    height: 30px;
+    width:200px;
+    font:bold normal 16px arial;
+    padding-left: 8px;
+}
+
+.container-results{
+    display:flex;
+    max-width:700px;
+    margin:0 auto;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.msgInit{
+    text-align: center;
+}
+
+.results{
+    height:350px;
+    width:200px;
+    margin:10px 16.65px;
+    border:solid black 1px;
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.results-city{
+    text-transform: uppercase;
+    font:200 normal 20px arial;
+}
+.results-descri{
+    text-transform: uppercase;
+    font:400 normal 16px arial;
+   
+}
+.results-temp{
+    text-transform: uppercase;
+    font:400 normal 60px arial;
+}
+.results-senstemp{
+    text-transform: uppercase;
+    font:400 normal 13px arial;
+}
+.container-error{
+    text-align: center;
+    height: 50px;
+
+}
+.msg-error{
+    color:rgba(250, 4, 4, 0.89);
+    font-size: 20px;
+}
