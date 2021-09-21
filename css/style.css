@@ -72,7 +72,7 @@
     text-align: center;
 }
 
-.results{
+.results-cards{
     height:350px;
     width:200px;
     margin:10px 16.65px;
@@ -85,32 +85,38 @@
     background-repeat: no-repeat;
     background-size: cover;
     background:rgba(0, 0, 0, 0.247);
-    background-blend-mode: darken; 
+    background-blend-mode: darken;
+    border: none;
+    box-shadow: 1px 1px 5px black;
+    transition: .3s ease-in-out;
+    opacity: .9
 }
-.results:hover{
+.results-cards:hover{
+    transform: scale(1.12);
+    opacity: 1;
 }
-.results.nublado{
+.results-cards.nublado{
     background-image: url("/img/tempo-nublado.jpg");   
 }
-.results.céulimpo{
+.results-cards.céulimpo{
     background-image: url("/img/dddddd.jpg");  
     
 }
-.results.poucasnuvens{
+.results-cards.poucasnuvens{
     background-image: url("/img/ceu-poucas-nuvens.jpg");   
 }
-.results.nuvensdispersas{
+.results-cards.nuvensdispersas{
     
     background-image:url("/img/nuvens-dispersas.jpg");  
 }
-.results.chuviscos{
+.results-cards.chuviscos{
     background-image: url("/img/chuviscos.jpg");   
 }
-.results.chuvafraca{
+.results-cards.chuvafraca{
     background-image: url("/img/chuva-fraca.jpg"); 
     
 }
-.results.chuvamoderada{
+.results-cards.chuvamoderada{
     background-image: url('/img/chuvamoderada.jpg');
 }
 
