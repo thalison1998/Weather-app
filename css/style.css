@@ -82,6 +82,34 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+}
+.results:hover{
+}
+.results.nublado{
+    background-image: url("/img/tempo-nublado.jpg");   
+}
+.results.céulimpo{
+    background-image: url("/img/dddddd.jpg");  
+    
+}
+.results.poucasnuvens{
+    background-image: url("/img/ceu-poucas-nuvens.jpg");   
+}
+.results.nuvensdispersas{
+    background-image: url("/img/nuvens-dispersas.jpg");   
+}
+.results.chuviscos{
+    background-image: url("/img/chuviscos.jpg");   
+}
+.results.chuvafraca{
+    background-image: url("/img/chuva-fraca.jpg"); 
+    
+}
+.results.chuvamoderada{
+    background-image: url('/img/chuvamoderada.jpg');
 }
 
 .results-city{
