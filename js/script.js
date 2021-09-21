@@ -22,7 +22,7 @@ const removeCard = ID => {
   init()
 }
 const cleaningOfUnwanted = (input) => {
-  const removeCaractes = /[`~!@#$%^&*()_|+\-=?;:'"¨\s,.<>\{\}\[\]\\\/]/gi;
+  const removeCaractes = /[`~!@#$%&*()_|+\-=?;:'"¨\s,.<>\{\}\[\]\\\/]/gi;
   const clearInput = input.trim().replace(removeCaractes, "");
   return clearInput;
 };
@@ -47,9 +47,9 @@ const createTemplate = ( item ) =>{
   const classResult = `
   results ${cleaningOfUnwanted(descriptionWeather).toLowerCase()}
   `
+  console.log(classResult)
   const div = document.createElement('div')
   div.setAttribute('class',classResult)
-  console.log('oin')
   div.innerHTML = `
   <button class="btn-closed" onclick="removeCard(${item.id})">X</button>
   <h1 class="results-city">${item.city_name}</h1>
@@ -101,6 +101,8 @@ const fetchWeather = async (city) => {
     }
     containerError.innerHTML = "";
     const { data } = await response.json();
+    console.log(data[0])
+    
     const objectsWithin = data[0];
     fetchDate(objectsWithin);
   } catch (msg) {
@@ -115,7 +117,7 @@ const handleEventSubmit = (e) => {
   if (!receiveImputClean) {
     msgError("Digite um termo válido");
     return;
-  }
+  }console.log(receiveImputClean)
   fetchWeather(receiveImputClean);
   
 };
