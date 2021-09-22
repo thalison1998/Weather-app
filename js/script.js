@@ -27,7 +27,7 @@ const cleaningOfUnwanted = (input) => {
 
 const MaxAndMinTemperature = (max,min) => {
   if(cardsInfo.length < 2){
-    containerInformation.innerHTML = `<p>Ainda não há dados suficientes para informar`
+    containerInformation.innerHTML = `<p class="msgInfo">Ainda não há dados suficientes para avaliar`
     return
   }
   containerInformation.innerHTML = `
