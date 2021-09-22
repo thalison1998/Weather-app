@@ -114,7 +114,7 @@ body{
     opacity: 1;
 }
 .results-cards.nublado{
-    background-image: url("process.env.PUBLIC_URL/img/tempo-nublado.jpg");   
+    background-image: url("/img/tempo-nublado.jpg");   
 }
 .results-cards.céulimpo{
     background-image: url("/img/dddddd.jpg");  
