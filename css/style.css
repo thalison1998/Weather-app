@@ -21,6 +21,7 @@ body{
     background-image:
     linear-gradient(to right, rgb(0, 153, 255),rgb(0, 195, 255));
     padding: 4rem 1rem;
+    
 }
 .container-header{
     max-width: 50rem;
@@ -88,7 +89,6 @@ body{
     font:600 normal 1.6rem arial;
     color:#000;
 }
-
 .results-cards{
     height:35rem;
     flex:1 0 20rem;
@@ -196,11 +196,12 @@ body{
     font:400 normal 1.6rem arial;
 }
 .maxTemp,.minTemp{
-    min-width: 20rem;
+    width: 20rem;
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     font-size: 1.5rem;
 }
 .wrapper-span{
@@ -239,52 +240,17 @@ body{
     color:rgba(250, 4, 4, 0.89);
     font-size: 2rem;
 }
-
-@media (max-width:788px){
-    html{
-        font-size: 50%;
-    }
-    body{
-        flex-direction: row;
-    }
+@media (max-width:703px){
     .container-header{
         justify-content: center;
-        margin-top:5rem;
-    }
-    .main{
-        flex:5;
-    }
-    .header{
-       flex: 1;
-        
-    }.title{
-        margin-bottom:1rem;
-    }
-    .logo .fa-cloud-sun-rain{
-        top:-8rem;
-        left: 1.3rem;
-    }
-    .container-results{
         flex-direction: column;
-        height: inherit;
-        padding: inherit;
-    }
-    .results-cards{
-        width: 89%;
-    }
-    .maxTemp,.minTemp{
-        min-width: 12rem;
-    }
-
-}
-@media (max-width:417px){
-    html{
-        font-size: 40%;
-    }
-    .header{
-       min-width: 150px;
     }
     .submit-input{
-        width: 100%;
+        margin-top:3rem;
+    }
+    .maxTemp,.minTemp{
+        margin: 1rem 0;
+        font-size: 1.4rem;
+        width: 13rem;
     }
 }
