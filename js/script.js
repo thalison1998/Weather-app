@@ -5,7 +5,7 @@ const containerResults = document.querySelector(".container-results");
 const containerInformation = document.querySelector(".container-information")
 
 const url = `https://api.weatherbit.io/v2.0/current?lang=pt&city=`;
-const date = `http://api.timezonedb.com/v2.1/get-time-zone?key=T74IZDS0A1GO&format=json&by=position&lat=`;
+const date = `https://api.timezonedb.com/v2.1/get-time-zone?key=T74IZDS0A1GO&format=json&by=position&lat=`;
 
 const localStorageInfoCards = JSON.parse(localStorage.getItem("cards"));
 let cardsInfo =
