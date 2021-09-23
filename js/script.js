@@ -157,7 +157,7 @@ const handleEventSubmit = (e) => {
   if (!receiveImputClean) {
     msgWarning("Digite um termo válido");
     return;
-  } else if (cardsInfo.length > 4) {
+  } else if (cardsInfo.length > 3) {
     msgWarning("Limite máximo de busca");
     return;
   }
