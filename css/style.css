@@ -253,4 +253,11 @@ body{
         font-size: 1.4rem;
         width: 13rem;
     }
+    .results-cards{
+        min-width: 25rem;
+        height:20rem;
+    }
+    .main{
+        padding:0 1rem;
+    }
 }
