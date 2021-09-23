@@ -124,7 +124,8 @@ body{
     background-image: url("/img/ceu-poucas-nuvens.jpg");   
 }
 .results-cards.nuvensdispersas{
-    
+    background-repeat: no-repeat;
+    background-size: cover;
     background-image:url("/img/nuvens-dispersas.jpg");  
 }
 .results-cards.chuviscos{
