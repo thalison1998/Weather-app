@@ -25,7 +25,10 @@ const cleaningOfUnwanted = (input) => {
   return clearInput;
 };
 
-const MaxAndMinTemperature = (max,min) => {
+const MaxAndMinTemperature = (tempo) => {
+  let min = tempo[0]
+  let max = tempo[tempo.length -1]
+
   if(cardsInfo.length < 2){
     containerInformation.innerHTML = `<p class="msgInfo">Ainda não há dados suficientes para avaliar`
     return
@@ -48,20 +51,16 @@ const MaxAndMinTemperature = (max,min) => {
   `
 };
 
-const maxTemp = () => {
-  return cardsInfo.reduce((acc, item) => {
-    return item.temp > acc.temp ? item : acc;
-  });
-};
-const minTemp = () => {
-  return cardsInfo.reduce((acc, item) => {
-    return item.temp > acc.temp ? acc : item;
-  });
-};
 
+const temperatureGauge = () => {
+  return cardsInfo.sort((info,info2)=> info.temp - info2.temp)
+}
+
+let timerReference
 const msgWarning = (msg) => {
   containerError.innerHTML = `<t class="msg-error">${msg}</p>`;
-  setTimeout(()=>{
+  clearTimeout(timerReference)
+  timerReference = setTimeout(()=>{
     containerError.innerHTML = ''
   },2000)
 };
@@ -96,7 +95,6 @@ const createTemplate = (item) => {
   <p class="date text--mod">${item.dateFormatted}</p>
   `;
   containerResults.appendChild(div);
-  
 };
 
 const init = () => {
@@ -106,7 +104,7 @@ const init = () => {
     templateInit();
   }
   else if(cardsInfo.length >= 1){
-    MaxAndMinTemperature(maxTemp(),minTemp());
+    MaxAndMinTemperature(temperatureGauge());
   }
   updateCardsLocalStorage();
 };
