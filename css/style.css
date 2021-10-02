@@ -82,7 +82,6 @@ body{
     align-items: center;
     justify-content: center;
     margin-top: 2rem;
-    padding:0 1rem;
 }
 .msgInit{
     text-align: center;
@@ -258,10 +257,18 @@ body{
         width: 13rem;
     }
     .results-cards{
+<<<<<<< mudanças
+        min-width: 18rem;
+=======
         min-width: 24rem;
+>>>>>>> master
         height:20rem;
     }
     .main{
         padding:0 1rem;
     }
+<<<<<<< mudanças
 }
+=======
+}
+>>>>>>> master
