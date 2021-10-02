@@ -20,7 +20,7 @@ body{
 .header{
     background-image:
     linear-gradient(to right, rgb(0, 153, 255),rgb(0, 195, 255));
-    padding: 4rem 1rem;
+    padding: 4rem 2rem;
     
 }
 .container-header{
@@ -87,6 +87,9 @@ body{
     text-align: center;
     font:600 normal 1.6rem arial;
     color:#000;
+}
+ .main{
+     padding:0 1rem;
 }
 .results-cards{
     height:35rem;
@@ -257,18 +260,8 @@ body{
         width: 13rem;
     }
     .results-cards{
-<<<<<<< mudanças
-        min-width: 18rem;
-=======
         min-width: 24rem;
->>>>>>> master
         height:20rem;
     }
-    .main{
-        padding:0 1rem;
     }
-<<<<<<< mudanças
-}
-=======
-}
->>>>>>> master
+
