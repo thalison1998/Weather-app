@@ -137,6 +137,9 @@ body{
 .results-cards.chuvamoderada{
     background-image: url('/img/chuvamoderada.jpg');
 }
+.results-cards.chuvaforte{
+    background-image: url('/img/chuva-forte.jpg');
+}
 
 .results-city{
     font:200 normal 2rem arial;
@@ -254,10 +257,18 @@ body{
         width: 13rem;
     }
     .results-cards{
+<<<<<<< mudanças
         min-width: 18rem;
+=======
+        min-width: 24rem;
+>>>>>>> master
         height:20rem;
     }
     .main{
         padding:0 1rem;
     }
+<<<<<<< mudanças
 }
+=======
+}
+>>>>>>> master
