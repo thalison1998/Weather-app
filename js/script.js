@@ -25,14 +25,16 @@ const cleaningOfUnwanted = (input) => {
   return clearInput;
 };
 
-const MaxAndMinTemperature = (tempo) => {
-  let min = tempo[0]
-  let max = tempo[tempo.length -1]
-
+const maxAndmininfoTemplate = () => {
   if(cardsInfo.length < 2){
     containerInformation.innerHTML = `<p class="msgInfo">Ainda não há dados suficientes para avaliar`
     return
   }
+}
+const MaxAndMinTemperature = (tempo) => {
+  let min = tempo[0]
+  let max = tempo[tempo.length -1]
+  
   containerInformation.innerHTML = `
   <div class="maxTemp">
     <i class="fas fa-arrow-up"></i>
@@ -107,6 +109,7 @@ const init = () => {
     MaxAndMinTemperature(temperatureGauge());
   }
   updateCardsLocalStorage();
+   maxAndmininfoTemplate()
 };
 
 const fetchDate = async (objectsWithin) => {
