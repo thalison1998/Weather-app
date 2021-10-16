@@ -112,7 +112,7 @@ body{
     opacity: .9
 }
 .results-cards:hover{
-    transform: scale(1.12);
+    transform: scale(1.08);
     opacity: 1;
 }
 .results-cards.nublado{
